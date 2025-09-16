@@ -9,4 +9,4 @@ jobs:
       - name: Train model
         run: |
           pip install -r requirements.txt
-          python train.py
+          python model.py
