@@ -1,4 +1,4 @@
-def create_print_hello (None) : 
-  return print ('hello from first project') 
+def create_print_hello() : 
+       print ('hello from firs       project') 
   
-create_print_hello ()
+create_print_hello()
