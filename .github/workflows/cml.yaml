@@ -9,4 +9,11 @@ jobs:
       - name: Train model
         run: |
           pip install -r requirements.txt
-          python model.py
+          python model.py > metrics.txt   # Save output to a file
+
+      - name: Create CML report
+        run: |
+          echo "## Model Training Report" >> report.md
+          echo "### Metrics" >> report.md
+          cat metrics.txt >> report.md
+          cml comment create report.md
