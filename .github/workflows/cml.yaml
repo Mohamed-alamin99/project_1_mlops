@@ -6,12 +6,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: iterative/setup-cml@v1
+
       - name: Train model
         run: |
           pip install -r requirements.txt
-          python model.py > metrics.txt   # Save output to a file
+          python model.py > metrics.txt
 
       - name: Create CML report
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # <-- add this
         run: |
           echo "## Model Training Report" >> report.md
           echo "### Metrics" >> report.md
