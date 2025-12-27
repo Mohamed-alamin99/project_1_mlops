@@ -11,12 +11,3 @@ jobs:
         run: |
           pip install -r requirements.txt
           python model.py > metrics.txt
-
-      - name: Create CML report
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # <-- add this
-        run: |
-          echo "## Model Training Report" >> report.md
-          echo "### Metrics" >> report.md
-          cat metrics.txt >> report.md
-          cml comment create report.md
